@@ -2,7 +2,7 @@ const gameViewBox = document.getElementById('game');
 let hiScore;
 
 
-//Player thing controllers are for mobile users
+//Player thing. Controllers are only for mobile devices
 const player = document.getElementById('player');
 const rightControler = document.getElementById('right');
 const leftControler = document.getElementById('left');
@@ -109,7 +109,7 @@ const increasingProbability = () => {
 
 const renderBlock = (blockObj) => {
     const blockEl = document.createElement('div');
-    let randomPosition = window.innerWidth*0.05 + Math.floor(Math.random() * window.innerWidth*0.90);
+    let randomPosition = window.innerWidth*0.05 + Math.floor(Math.random() * (window.innerWidth*0.90)-20);
     blockEl.style.left = randomPosition.toString() + "px";
     blockEl.innerHTML = blockObj.icon;
     blockEl.setAttribute("class",`${blockObj.type}-block ${blockObj.type === 'crazy' ? (Math.random() < 0.5 ? 'right-crazy' : 'left-crazy') : blockObj.type }-animation`);

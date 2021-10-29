@@ -179,6 +179,40 @@ button:hover{
 }
 
 @media only screen and (max-width: 768px) {
+    body{
+        background-color: #fff;
+    }
+    #game {
+        height: 80vh;
+    }
+    #player {
+        top: 70vh;
+    }
+    #pop-up,#start-pop-up{
+        transform: translateY(calc(40vh - 80px));
+    }
+    @keyframes block {
+        0%{top:0vh;}
+        100%{top:80vh;}
+    }
+    @keyframes crazy-left {
+        0%{top:0vh;}
+        20%{left: 5%;}
+        40%{left: 95%;}
+        50%{background-color: #00ff00;}
+        60%{left: 5%;}
+        70%{top: 70vh;}
+        100%{top:80vh; background-color: #0000ff;}
+    }
+    @keyframes crazy-right {
+        0%{top:0vh;}
+        20%{left: 95%;}
+        40%{left: 5%;}
+        50%{background-color: #ff0000;}
+        60%{left: 95%;}
+        70%{top: 70vh;}
+        100%{top: 80vh; background-color: #fff;}
+    }
     .controler {
         display: block;
         width: 50%;
