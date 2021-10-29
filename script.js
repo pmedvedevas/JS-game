@@ -10,7 +10,7 @@ const leftControler = document.getElementById('left');
 const playerObj = {
     position: window.innerWidth/2 - 50,
     score: 0,
-    pace: 200,
+    pace: 400,
     lives: 3,
     speed: 20,
     width: 100,
