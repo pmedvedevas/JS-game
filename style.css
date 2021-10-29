@@ -174,3 +174,20 @@ button:hover{
     box-shadow: 0 0 3px 1px #303030;
 }
 
+.controler{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .controler {
+        display: block;
+        width: 50%;
+        height: 100vh;
+        position: absolute;
+        z-index: 5;
+    }
+    #right {
+        left: 50%;
+    }
+  }
+

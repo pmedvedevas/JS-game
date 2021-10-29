@@ -2,8 +2,10 @@ const gameViewBox = document.getElementById('game');
 let hiScore;
 
 
-//Player thing
+//Player thing controllers are for mobile users
 const player = document.getElementById('player');
+const rightControler = document.getElementById('right');
+const leftControler = document.getElementById('left');
 
 const playerObj = {
     position: window.innerWidth/2 - 50,
@@ -22,11 +24,25 @@ const playerObj = {
             playerObj.position -= playerObj.speed;
             player.style.left = playerObj.position.toString() + "px";
         }
+    },
+    moveRight() {
+        if(playerObj.position < window.innerWidth*0.95 - playerObj.width){
+            playerObj.position += playerObj.speed;
+            player.style.left = playerObj.position.toString() + "px";
+        }
+    },
+    moveLeft() {
+        if(playerObj.position > window.innerWidth*0.05){
+            playerObj.position -= playerObj.speed;
+            player.style.left = playerObj.position.toString() + "px";
+        }
     }
 };
 
 document.addEventListener('keydown',playerObj.move);
 
+rightControler.addEventListener('click',playerObj.moveRight);
+leftControler.addEventListener('click',playerObj.moveLeft);
 
 
 //Start game
