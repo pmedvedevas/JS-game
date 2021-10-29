@@ -6,19 +6,19 @@ let hiScore;
 const player = document.getElementById('player');
 
 const playerObj = {
-    position: 200,
+    position: window.innerWidth/2 - 50,
     score: 0,
-    pace: 300,
+    pace: 200,
     lives: 3,
     speed: 20,
     width: 100,
     gameOver: true,
     move(e) {
-        if(e.key === 'ArrowRight' && playerObj.position < 400){
+        if(e.key === 'ArrowRight' && playerObj.position < window.innerWidth*0.95 - playerObj.width){
             playerObj.position += playerObj.speed;
             player.style.left = playerObj.position.toString() + "px";
         }
-        else if (e.key === 'ArrowLeft' && playerObj.position > 0){
+        else if (e.key === 'ArrowLeft' && playerObj.position > window.innerWidth*0.05){
             playerObj.position -= playerObj.speed;
             player.style.left = playerObj.position.toString() + "px";
         }
@@ -37,6 +37,7 @@ const initiateGame = () => {
     startPopUp.remove();
     playerObj.gameOver = false;
     player.style.width = playerObj.width.toString()+"px";
+    player.style.left = playerObj.position.toString()+"px";
     game.score.innerText = 0;
 
     renderHeartIcons()
@@ -92,7 +93,7 @@ const increasingProbability = () => {
 
 const renderBlock = (blockObj) => {
     const blockEl = document.createElement('div');
-    let randomPosition = Math.floor(Math.random() * 480);
+    let randomPosition = window.innerWidth*0.05 + Math.floor(Math.random() * window.innerWidth*0.90);
     blockEl.style.left = randomPosition.toString() + "px";
     blockEl.innerHTML = blockObj.icon;
     blockEl.setAttribute("class",`${blockObj.type}-block ${blockObj.type === 'crazy' ? (Math.random() < 0.5 ? 'right-crazy' : 'left-crazy') : blockObj.type }-animation`);
